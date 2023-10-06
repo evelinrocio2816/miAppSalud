@@ -1,4 +1,4 @@
-import { Image, Text, View } from "react-native";
+import { Image, Text,  TouchableOpacity,  View } from "react-native";
 import styles from './Details.style'
 import { Header } from "../../components";
 
@@ -7,7 +7,7 @@ import { Header } from "../../components";
 
 
 
-const Details = ({route}) => {
+const Details = ({route, navigation}) => {
   const {medicos}=route.params
   return (
     <>
@@ -15,9 +15,15 @@ const Details = ({route}) => {
         <Header title={"Detalles Del Turno"} />
        <Image style={styles.image} source={medicos.image}/>
         <Text style={styles.title}>Medico:{medicos.nombre}</Text>
-        <Text style={styles.description}>Description:{medicos.desciption}</Text>
+        <Text style={styles.description}>Description:{medicos.description}</Text>
         <Text style={styles.price}>Precio: $ ${medicos.price}</Text>
-       
+
+     <TouchableOpacity style={styles.button} onPress={()=> navigation.goBack()} >
+      <Text style={styles.textButton}>Back ⬅️ </Text>
+     </TouchableOpacity>
+
+   
+        
       </View>
     
     </>

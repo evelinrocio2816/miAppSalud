@@ -1,7 +1,9 @@
 import { useFonts } from "expo-font";
 import fonts from "./src/global/fonts";
-import StackNavigator from "./src/Navigation/StackNavigation";
+import StackNavigator from "./src/Navigation/StackNavigator/StackNavigator";
 
+import { NavigationContainer } from "@react-navigation/native";
+import BottonTabNavigator from "./src/Navigation/Bottom/BottomTabNavigator";
 
 
 
@@ -16,8 +18,9 @@ export default function App() {
     return null;
   }
   return(
-  <StackNavigator/>
-
+  <NavigationContainer>
+ <BottonTabNavigator/>
  
+</NavigationContainer>
   )
 }

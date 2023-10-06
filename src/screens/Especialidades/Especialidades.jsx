@@ -1,5 +1,5 @@
 import { FlatList, Text, View } from 'react-native'
-import styles from './Especialidades.styles'
+
 import dataCategorys from '../../data/dataCategorys'
 import { CategoryItem } from '../Home/components'
 import { Header } from '../../components'
