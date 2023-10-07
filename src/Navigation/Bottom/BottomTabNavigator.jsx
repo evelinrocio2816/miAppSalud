@@ -15,35 +15,35 @@ const BottonTab = createBottomTabNavigator();
 function BottonTabNavigator() {
   return (
     <BottonTab.Navigator
-      initialRouteName="Home"
+      initialRouteName="HomeButton"
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: styles.tabBar,
       }}
     >
-        <BottonTab.Screen name="Home" component={StackNavigator}options={{
+        <BottonTab.Screen name="HomeButton" component={StackNavigator}options={{
           tabBarIcon: ({ focused }) => (
             <View style={focused ? styles.iconContainer : null}>
               <Feather name="home" size={24} color={'white'} />
             </View>
           ),
         }} />
-      <BottonTab.Screen name="Shop" component={StackNavigator}options={{
+      <BottonTab.Screen name="ShopButton" component={StackNavigator}options={{
           tabBarIcon: ({ focused }) => (
             <View style={focused ? styles.iconContainer : null}>
               <Feather name="shopping-bag" size={24} color={'white'} />
             </View>
           ),
         }} />
-      <BottonTab.Screen name="Cart" component={CartNavigator} options={{
+      <BottonTab.Screen name="CartButton" component={CartNavigator} options={{
           tabBarIcon: ({ focused }) => (
             <View style={focused ? styles.iconContainer : null}>
               <Feather name="shopping-cart" size={24} color={'white'} />
             </View>
           ),
         }} />
-         <BottonTab.Screen name="Order" component={OrdersNavigator}options={{
+         <BottonTab.Screen name="OrderButton" component={OrdersNavigator}options={{
           tabBarIcon: ({ focused }) => (
             <View style={focused ? styles.iconContainer : null}>
               <Feather name="list" size={24} color={'white'} />
