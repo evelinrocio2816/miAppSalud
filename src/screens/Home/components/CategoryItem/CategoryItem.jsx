@@ -1,6 +1,6 @@
 
 import { Pressable, Text, } from 'react-native'
-import { Card } from '../../../../components'
+import {  Card } from '../../../../components'
 import  styles  from './CategoryItem.styles'
 import { useDispatch } from 'react-redux'
 import { setCategorySelected } from '../../../../features/especialidad/medicSlice'

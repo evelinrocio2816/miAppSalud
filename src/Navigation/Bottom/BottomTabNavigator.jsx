@@ -1,6 +1,6 @@
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import CartNavigator from "../CartNavigator/CartNavigator";
+
 import StackNavigator from "../StackNavigator/StackNavigator";
 import OrdersNavigator from "../Orders/OrdersNavigator";
 
@@ -8,6 +8,7 @@ import styles from './BottomTabNavigator.styles'
 import { View } from 'react-native';
 
 import Feather from '@expo/vector-icons/Feather'
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
 
 
 const BottonTab = createBottomTabNavigator();
@@ -36,17 +37,11 @@ function BottonTabNavigator() {
             </View>
           ),
         }} />
-      <BottonTab.Screen name="CartButton" component={CartNavigator} options={{
-          tabBarIcon: ({ focused }) => (
-            <View style={focused ? styles.iconContainer : null}>
-              <Feather name="shopping-cart" size={24} color={'white'} />
-            </View>
-          ),
-        }} />
+      
          <BottonTab.Screen name="OrderButton" component={OrdersNavigator}options={{
           tabBarIcon: ({ focused }) => (
             <View style={focused ? styles.iconContainer : null}>
-              <Feather name="list" size={24} color={'white'} />
+              <FontAwesome5 name="user-md" size={24} color={'white'} />
             </View>
           ),
         }} />
