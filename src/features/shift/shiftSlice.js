@@ -23,7 +23,7 @@ export const shiftSlice = createSlice({
           return
         })
         const total =itemsUpdated.reduce(
-          (acc,current)=>(acc += current.price * current.quantity)
+          (acc,current)=>(acc += current.price * current.quantity),0
         )
         state={
           ...state,
@@ -34,7 +34,7 @@ export const shiftSlice = createSlice({
       }else{
         state.items.push(action.payload)
         const total = state.items.reduce(
-          (acc,current)=>(acc += current.price * current.quantity)
+          (acc,current)=>(acc += current.price * current.quantity),0
         )
         state={
           ...state,
