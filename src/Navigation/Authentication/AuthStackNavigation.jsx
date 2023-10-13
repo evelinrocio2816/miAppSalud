@@ -10,7 +10,7 @@ function AuthStackNavigator() {
         headerShown: false, })} 
       
     >
-      <AuthStack.Screen name="Sign Up" component={SignUp} />
+      <AuthStack.Screen name="SignUp" component={SignUp} />
       <AuthStack.Screen name="Login" component={Login} />
    
     </AuthStack.Navigator>

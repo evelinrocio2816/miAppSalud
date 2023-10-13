@@ -9,12 +9,13 @@ export const styles = StyleSheet.create({
         
     },
     image:{
-        width:'40%',
-        height:'27%',
+        width:200,
+        height:200,
         justifyContent:'center',
         alignItems:'center',
         marginHorizontal: '20%',
         marginBottom:15,
+        borderRadius:95,
       
     },
     profileCamera:{
@@ -23,6 +24,7 @@ export const styles = StyleSheet.create({
         backgroundColor:colors.color1,
         padding:20,
         borderRadius:20,
+     marginTop:10,
 
     }
 })

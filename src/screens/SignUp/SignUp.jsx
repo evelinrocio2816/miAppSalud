@@ -2,16 +2,15 @@ import { Pressable, Text, TextInput, View } from "react-native";
 import styles from "./SignUp.styles";
 import { Header } from "../../components";
 import { useState } from "react";
-import { useSignUpMutation } from "../../services/AuthApi";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../features/Auth/authSlice";
+import { useSignUpMutation } from "../../services/AuthApi";
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
-
-  const [triggerSignUp, result] = useSignUpMutation();
+  const [triggerSignUp,result] = useSignUpMutation();
   const dispatch = useDispatch();
 
   const onSubmit = () => {
@@ -33,7 +32,7 @@ const SignUp = () => {
       <Header title={"Welcome to Salud"} />
       <View style={styles.container}>
         <View style={styles.loginContainer}>
-          <Text>Login</Text>
+          <Text>Sign Up To Start</Text>
           <TextInput
             style={styles.inputEmail}
             placeholder="Email"
@@ -57,7 +56,7 @@ const SignUp = () => {
           </Pressable>
           <Text>Already have an Account?</Text>
           <Pressable style={styles.loginButtom}>
-            <Text style={{ color: "white" }}>Login</Text>
+            <Text style={{ color: "white" }} onPress={()=>navigation.navigate('Login')}>Login</Text>
           </Pressable>
         </View>
       </View>

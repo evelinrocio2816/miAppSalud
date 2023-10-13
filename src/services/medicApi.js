@@ -17,10 +17,24 @@ export const medicApi = createApi({
       query: category =>
         `Medics.json?orderBy="category"&equalTo="${category}"`,
     }),
+    getProfileImage: builder.query({
+      query: localId => `profileImages/${localId}.json`,
+    }),
+    postProfileImage: builder.mutation({
+      query: ({ image, localId }) => ({
+        url: `profileImages/${localId}.json`,
+        method: 'PUT',
+        body: {
+          image: image,
+        },
+      }),
+    }),
   }),
 });
 export const {
   useGetCategoryQuery,
   useGetMedicsQuery,
   useGetMedicsByCategoryQuery,
+  useGetProfileImageQuery,
+  usePostProfileImageMutation,
 } = medicApi

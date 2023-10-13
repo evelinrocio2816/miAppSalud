@@ -1,14 +1,16 @@
 import { Text, View, Image, Pressable } from "react-native";
 import React, { useState } from "react";
-import { Header } from "../../components";
+
 import { styles } from "./Profile.styles";
 import * as ImagePicker from "expo-image-picker";
 import { useDispatch, useSelector } from "react-redux";
 import { setCameraImage } from "../../features/Auth/authSlice";
+import { usePostProfileImageMutation } from "../../services/medicApi";
 
 const Profile = () => {
-  const image = useSelector((state) => state.auth.imageCamera);
-
+  const image = useSelector(state => state.auth.imageCamera);
+  const { localId } = useSelector(state => state.auth)
+  const [triggerSaveProfileImage,result ] = usePostProfileImageMutation()
   const dispatch = useDispatch();
 
   const verifyCameraPermissions = async () => {
@@ -39,13 +41,13 @@ const Profile = () => {
     }
   };
 
-  const confirmImage = () => {};
+  const confirmImage = () => {
+    triggerSaveProfileImage({ image, localId })
+    console.log(result);
+  };
 
   return (
     <>
-      <View>
-        <Header title={"Profile"} />
-      </View>
       <View style={styles.container}>
         {image ?  <Image
             source={{
@@ -66,6 +68,9 @@ const Profile = () => {
         <Pressable style={styles.profileCamera} onPress={pickImage}>
           <Text>Tomar Foto De Perfil</Text>
         </Pressable>
+        <Pressable style={styles.profileCamera} onPress={confirmImage}>
+        <Text>Confirm</Text>
+      </Pressable>
       </View>
     </>
   );
